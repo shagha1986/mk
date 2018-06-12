@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-public class login {
+public class login implements ActionListener{
 
     private final int hGap = 20;
     private final int vGap = 20;
@@ -62,6 +62,13 @@ public class login {
         jf.setVisible(true);
         jf.pack();
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()== login){}
+        else if (e.getSource() == cancel){
+            new btnCancel(jf);
+        }
     }
 
     public static void main(String args[]) {

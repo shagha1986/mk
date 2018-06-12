@@ -37,7 +37,7 @@ public class Register implements ActionListener {
     private JPanel labelPanel, txtfieldPanel;
 
     JFrame jf;
-    static Session session = null;
+    
 
     Register() {
         jf = new JFrame();
@@ -105,20 +105,11 @@ public class Register implements ActionListener {
             rregisterDate = new Date();
             remail = fields[7].getText();
             Tregister tr = new Tregister(1, rname, rlastname, remail, rage, rphone, new Date(), new Date(), rusername, rpassword);
-            insert(tr);
+            new insertDb(tr);
 
         } else if (e.getSource() == cancel) {
             new btnCancel(jf);
         }
-    }
-
-    public static void insert(Tregister r) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction t = session.beginTransaction();
-        session.save(r);
-        t.commit();//transaction is committed  
-        System.out.println("donecxcxcxcxcxcxc");
-        session.close();
     }
 
     public static void main(String args[]) {
