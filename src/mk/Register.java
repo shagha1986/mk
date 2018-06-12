@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mk;
 
 /**
@@ -112,10 +107,8 @@ public class Register implements ActionListener {
             Tregister tr = new Tregister(1, rname, rlastname, remail, rage, rphone, new Date(), new Date(), rusername, rpassword);
             insert(tr);
 
-        }
-
-        else if (e.getSource() == cancel) {
-           new btnCancel(jf);
+        } else if (e.getSource() == cancel) {
+            new btnCancel(jf);
         }
     }
 

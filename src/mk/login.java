@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mk;
 
 /**
@@ -26,7 +21,7 @@ public class login {
 
     login() {
         jf = new JFrame();
-         
+
         JPanel contentpane = new JPanel(new BorderLayout(hGap, vGap));
         contentpane.setBorder(BorderFactory.createEmptyBorder(hGap, vGap, hGap, vGap));
         contentpane.setBorder(BorderFactory.createTitledBorder("Login Form"));
@@ -40,7 +35,7 @@ public class login {
         lpass = new JLabel("Password");
         lblarea.add(lname);
         lblarea.add(lpass);
-        
+
         //Textfields
         username = new JTextField();
         username.setPreferredSize(new Dimension(150, 30));
