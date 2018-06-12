@@ -22,17 +22,17 @@ import java.util.Date;
 import org.hibernate.Transaction;//alt +shift+i
 
 public class Register implements ActionListener {
-    
-    static    private int id;
-  static String rname;
-  static   String rlastname;
-  static   String remail;
- static    int rage;
- static   String rphone;
-static  Date rregisterDate;
-static    Date rlastLogin;
-  static  String rusername;
-  static  String rpassword;
+
+    static private int id;
+    static public String rname;
+    static public String rlastname;
+    static public String remail;
+    static public int rage;
+    static public String rphone;
+    static public Date rregisterDate;
+    static public Date rlastLogin;
+    static public String rusername;
+    static public String rpassword;
 
     private final int hGap = 20;
     private final int vGap = 20;
@@ -43,8 +43,6 @@ static    Date rlastLogin;
 
     JFrame jf;
     static Session session = null;
-
-
 
     Register() {
         jf = new JFrame();
@@ -100,20 +98,31 @@ static    Date rlastLogin;
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        String[] Lnames = {"Name", "Lastname", "Age", "Phone", "Username", "Password", "Retype Password", "Email"};
 
-//        if (e.getSource() == register) {
-       
+        if (e.getSource() == register) {
+            rname = fields[0].getText();
+            rlastname = fields[1].getText();
+            rage = Integer.parseInt(fields[2].getText());
+            rphone = fields[3].getText();
+            rusername = fields[4].getText();
+            rpassword = fields[5].getText();
+            rregisterDate = new Date();
+            remail = fields[7].getText();
+            Tregister tr = new Tregister(1, rname, rlastname, remail, rage, rphone, new Date(), new Date(), rusername, rpassword);
+            insert(tr);
+
+        }
+
 //            if (fields[5].getText().equals(fields[6].getText())) {
 //                password = fields[5].getText();
 //            }
-
 //        }
 //        else if (e.getSource() == cancel) {
 //        }
     }
 
-    public static  void insert(Tregister r) {
+    public static void insert(Tregister r) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
         session.save(r);
@@ -123,21 +132,14 @@ static    Date rlastLogin;
     }
 
     public static void main(String args[]) {
-             rname = "ww";
-           System.out.println(rname);
-            rlastname = "ww";
-            rage = 12;
-            rphone = "ww";
-            rusername = "ww";
-           rregisterDate = new Date();
-            remail = "ww";
-            rpassword = "ww";
+
+        System.out.println(rname);
+
         new Register();
-      System.out.println(rname);
-      System.out.println(rlastname);
-      System.out.println(remail);
-        Tregister tr = new Tregister(1, rname, rlastname, remail, 12, rphone, new Date(), new Date(), rusername, rpassword);
-        insert(tr);
+        System.out.println(rname);
+        System.out.println(rlastname);
+        System.out.println(remail);
+
     }
 
 }
