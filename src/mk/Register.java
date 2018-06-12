@@ -114,12 +114,9 @@ public class Register implements ActionListener {
 
         }
 
-//            if (fields[5].getText().equals(fields[6].getText())) {
-//                password = fields[5].getText();
-//            }
-//        }
-//        else if (e.getSource() == cancel) {
-//        }
+        else if (e.getSource() == cancel) {
+           new btnCancel(jf);
+        }
     }
 
     public static void insert(Tregister r) {
