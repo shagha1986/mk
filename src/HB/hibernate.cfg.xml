@@ -46,6 +46,9 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mk?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
+   
+
     <mapping resource="entity/Tregister.hbm.xml"/>
+    <mapping class="entity.Tregister"/>
   </session-factory>
 </hibernate-configuration>

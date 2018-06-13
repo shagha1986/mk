@@ -10,11 +10,11 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-public class login implements ActionListener{
+public class login implements ActionListener {
 
     private final int hGap = 20;
     private final int vGap = 20;
-    private JFrame jf;
+     JFrame jf;
     private JButton login, cancel;
     private JTextField username, password;
     private JLabel lname, lpass;
@@ -50,8 +50,10 @@ public class login implements ActionListener{
         JPanel btnarea = new JPanel(new GridLayout(1, 1, hGap, vGap));
         login = new JButton("Login");
         login.setPreferredSize(new Dimension(150, 30));
+        login.addActionListener(this);
         cancel = new JButton("Cancel");
         cancel.setPreferredSize(new Dimension(150, 30));
+        cancel.addActionListener(this);
         btnarea.add(login);
         btnarea.add(cancel);
         contentpane.add(btnarea, BorderLayout.PAGE_END);
@@ -63,12 +65,19 @@ public class login implements ActionListener{
         jf.pack();
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()== login){}
-        else if (e.getSource() == cancel){
-            new btnCancel(jf);
+        if (e.getSource() == login) {
+            
+          new fetchData();
+        } else if (e.getSource() == cancel) {
+               new btnCancel(jf);
+          
         }
+    }
+
+    public void loginProcess() {
+
     }
 
     public static void main(String args[]) {
